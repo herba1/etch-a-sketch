@@ -1,0 +1,22 @@
+/* Modern CSS Reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;  /* This is the better box model you asked about! */
+}
+
+#container{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-evenly; */
+}
+.rowDiv{
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.colDiv{
+    height: 50px;
+    width: 50px;
+    border: solid 1px black;
+}
