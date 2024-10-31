@@ -8,14 +8,18 @@
 #container{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    height: 500px;
+    width:500px;
 }
 .rowDiv{
     display: flex;
+    /* take up all space evenly */
+    flex: 1;
 }
 
 .colDiv{
-    height: 20px;
-    width: 20px;
-    border: solid 1px black;
+    /* take up all space in row div evenly */
+    flex: 1;
+    border: solid 1px rgb(88, 88, 88);
+    opacity: 1;
 }
