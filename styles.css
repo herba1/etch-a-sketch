@@ -23,3 +23,7 @@
     border: solid 1px rgb(88, 88, 88);
     opacity: 1;
 }
+
+.darken{
+    background-color: black;
+}

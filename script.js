@@ -42,29 +42,35 @@ function randomRGB(){
 document.querySelector("#container").addEventListener("mouseover", (e) => {
     if(e.target.matches('.colDiv')){
         const hoverDiv = e.target;
-        if(isRainbow === true){
-            hoverDiv.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`; 
-        }
-        else if(isBlack === true){
-            hoverDiv.style.backgroundColor = 'black';
-        }
-
         const computedStyle = window.getComputedStyle(hoverDiv);
-
         const opacity = computedStyle.opacity;
-        console.log(opacity);
-        console.log(computedStyle.opacity);
-        
-        if(hoverDiv.matches('.marked')){
-           hoverDiv.style.opacity = `${opacity - 0.1}` 
+
+        if(isRainbow === true && !hoverDiv.matches('.rainbow')){
+            hoverDiv.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`; 
+            hoverDiv.classList.toggle(`rainbow`);
+
+            if(hoverDiv.matches('.userColor')){
+                hoverDiv.classList.toggle('userColor');
+            }
         }
 
-        if(!e.target.matches('.marked')){
-            e.target.classList.toggle('marked');
+        else if(isBlack === true && !hoverDiv.matches('.userColor')){
+            hoverDiv.style.backgroundColor = 'black';
+            hoverDiv.classList.toggle('userColor');
         }
-        // to do
-        // 1. Make background tiles after marked black to darken instead of lighten
-        // 2. After marked and in rainbow mode do not change the color again
+
+        // console.log(opacity);
+        // console.log(computedStyle.opacity);
+        
+        // mark the painted tile
+        // if(hoverDiv.matches('.marked')){
+        //    hoverDiv.style.opacity = `${opacity - 0.1}` 
+        // }
+
+        // if(!e.target.matches('.marked')){
+        //     e.target.classList.toggle('marked');
+        // }
+
     }
 })
 
