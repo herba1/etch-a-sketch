@@ -57,6 +57,9 @@ document.querySelector("#container").addEventListener("mouseover", (e) => {
         else if(isBlack === true && !hoverDiv.matches('.userColor')){
             hoverDiv.style.backgroundColor = 'black';
             hoverDiv.classList.toggle('userColor');
+                if(hoverDiv.matches('.rainbow')){
+                    hoverDiv.classList.toggle('rainbow');
+                }
         }
 
         // console.log(opacity);
