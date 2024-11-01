@@ -2,8 +2,10 @@
 const container = document.querySelector("#container");
 const button = document.querySelector(`#btn`);
 const userColor = document.querySelector('#colorBtn');
+const resSlider = document.querySelector('#resSlider');
 let isRainbow = false;
 let isBlack = true;
+
 
 userColor.addEventListener('click',()=>{
     if(isRainbow === false){
@@ -43,36 +45,46 @@ document.querySelector("#container").addEventListener("mouseover", (e) => {
     if(e.target.matches('.colDiv')){
         const hoverDiv = e.target;
         const computedStyle = window.getComputedStyle(hoverDiv);
-        const opacity = computedStyle.opacity;
+        opacity = computedStyle.opacity;
 
         if(isRainbow === true && !hoverDiv.matches('.rainbow')){
             hoverDiv.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`; 
             hoverDiv.classList.toggle(`rainbow`);
 
+
             if(hoverDiv.matches('.userColor')){
                 hoverDiv.classList.toggle('userColor');
+                // hoverDiv.style.opacity = '1';
+                opacity = 1.1;
             }
+
         }
 
         else if(isBlack === true && !hoverDiv.matches('.userColor')){
             hoverDiv.style.backgroundColor = 'black';
             hoverDiv.classList.toggle('userColor');
+
                 if(hoverDiv.matches('.rainbow')){
                     hoverDiv.classList.toggle('rainbow');
+                    // hoverDiv.style.opacity = '1';
+                    opacity = 1.1;
                 }
+
         }
 
         // console.log(opacity);
         // console.log(computedStyle.opacity);
+        if(!hoverDiv.matches('.marked')){
+            hoverDiv.classList.toggle('marked');
+            opacity = 1.1;
+        }
         
         // mark the painted tile
-        // if(hoverDiv.matches('.marked')){
-        //    hoverDiv.style.opacity = `${opacity - 0.1}` 
-        // }
+        if(hoverDiv.matches('.marked')){
+           hoverDiv.style.opacity = `${opacity - 0.1}` 
+           console.log(`${opacity - 0.1}`);
+        }
 
-        // if(!e.target.matches('.marked')){
-        //     e.target.classList.toggle('marked');
-        // }
 
     }
 })
@@ -108,3 +120,12 @@ button.addEventListener("click", ()=>{
     // repaint board
     newRes(input);
 })
+
+const resOut = document.querySelector(`#resOut`);
+
+resSlider.oninput = function(){
+    resOut.textContent = `Res:${resSlider.value}x${resSlider.value}`;
+    container.replaceChildren();
+    newRes(resSlider.value);
+}
+
