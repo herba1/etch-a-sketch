@@ -3,8 +3,15 @@ const container = document.querySelector("#container");
 const button = document.querySelector(`#btn`);
 const userColor = document.querySelector('#colorBtn');
 const resSlider = document.querySelector('#resSlider');
+const clearButton = document.querySelector('#clearBtn');
 let isRainbow = false;
 let isBlack = true;
+let currentRes = 16;//init 16x16
+
+clearButton.addEventListener('click', ()=>{
+    container.replaceChildren();
+    newRes(currentRes);
+})
 
 
 userColor.addEventListener('click',()=>{
@@ -72,8 +79,6 @@ document.querySelector("#container").addEventListener("mouseover", (e) => {
 
         }
 
-        // console.log(opacity);
-        // console.log(computedStyle.opacity);
         if(!hoverDiv.matches('.marked')){
             hoverDiv.classList.toggle('marked');
             opacity = 1.1;
@@ -90,6 +95,7 @@ document.querySelector("#container").addEventListener("mouseover", (e) => {
 })
 
 function newRes(value){
+    currentRes = value;
     for (let i = 0; i < value; i++){
         let rowDiv = document.createElement("div");
         rowDiv.classList.toggle(`r${i}`);
