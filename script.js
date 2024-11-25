@@ -1,4 +1,5 @@
 
+const resOut = document.querySelector(`#resOut`);
 const container = document.querySelector("#container");
 const button = document.querySelector(`#btn`);
 const userColor = document.querySelector('#colorBtn');
@@ -58,7 +59,6 @@ document.querySelector("#container").addEventListener("mouseover", (e) => {
             hoverDiv.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`; 
             hoverDiv.classList.toggle(`rainbow`);
 
-
             if(hoverDiv.matches('.userColor')){
                 hoverDiv.classList.toggle('userColor');
                 // hoverDiv.style.opacity = '1';
@@ -89,13 +89,12 @@ document.querySelector("#container").addEventListener("mouseover", (e) => {
            hoverDiv.style.opacity = `${opacity - 0.1}` 
            console.log(`${opacity - 0.1}`);
         }
-
-
     }
 })
 
 function newRes(value){
     currentRes = value;
+    resOut.textContent = `Res:${value}x${value}`;
     for (let i = 0; i < value; i++){
         let rowDiv = document.createElement("div");
         rowDiv.classList.toggle(`r${i}`);
@@ -119,18 +118,14 @@ button.addEventListener("click", ()=>{
         }
         input = Number(prompt("Value must be 1 - 100"));
     }
-    console.log(input);
-
     // simple way to delete all its children
     container.replaceChildren();
     // repaint board
     newRes(input);
 })
 
-const resOut = document.querySelector(`#resOut`);
 
 resSlider.oninput = function(){
-    resOut.textContent = `Res:${resSlider.value}x${resSlider.value}`;
     container.replaceChildren();
     newRes(resSlider.value);
 }

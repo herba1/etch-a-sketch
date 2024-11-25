@@ -20,7 +20,7 @@
 .colDiv{
     /* take up all space in row div evenly */
     flex: 1;
-    border: solid 0.4px rgb(177, 177, 177);
+    border: solid 0.4px rgb(235, 235, 235);
     opacity: 1;
 }
 
