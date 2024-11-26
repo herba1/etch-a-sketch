@@ -27,3 +27,45 @@
 .darken{
     background-color: black;
 }
+
+.mainWrapper{
+    display: flex;
+    flex-direction: column;
+    
+}
+.bodyWrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.mainBody{
+    /* background-color: black; */
+}
+
+.titleBody{
+    display: flex;
+    justify-content: center;
+    color: white;
+    background-color: rgb(189, 52, 52);
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+}
+
+.secondBody{
+    display: flex;
+}
+
+.settingsBody{
+    display: flex;
+    flex-direction: column;
+}
+
+#resOut{
+    justify-self: flex-end;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+}
+

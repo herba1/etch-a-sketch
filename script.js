@@ -19,12 +19,12 @@ userColor.addEventListener('click',()=>{
     if(isRainbow === false){
         isRainbow = true;
         isBlack = false;
-        userColor.innerHTML = "make black";
+        userColor.innerHTML = "Make Black";
     }
     else if (isRainbow === true){
         isRainbow = false;
         isBlack = true;
-        userColor.innerHTML = "make rainbow";
+        userColor.innerHTML = "Make Rainbow";
     }
 })
 

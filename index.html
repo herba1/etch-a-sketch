@@ -1,27 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
+
 <body>
-    <div class="mainBody">
-        <div class="titleBody">
-            <h1>Etch A Sketch</h1>
+    <div class="mainWrapper">
+        <div class="bodyWrapper">
+            <div class="mainBody">
+                <div class="titleBody">
+                    <p>little</p>
+                    <h1>Etch-A-Sketch</h1>
+                </div>
+                <div class="secondBody">
+                    <div class="settingsBody">
+                        <button id="btn">Change Resolution</button>
+                        <input type="range" min="1" max="100" value="16" id="resSlider" class="slider">
+                        <button id="colorBtn">Make Rainbow</button>
+                        <button id="clearBtn">Clear Board</button>
+                    </div>
+                    <div id="container"></div>
+                </div>
+                <p id="resOut">Res:16x16</p>
+            </div>
         </div>
-        <div class="secondBody">
-           <div class="settingsBody">
-                <button id="btn">Change Resolution</button>
-                <input type="range" min="1" max="100" value="16" id="resSlider" class="slider">
-                <button id="colorBtn">Make Rainbow</button>
-                <button id="clearBtn">Clear Board</button>
-           </div> 
-            <div id="container"></div>
-        </div>
-        <p id="resOut">Res:16x16</p>
+        <div class="footer">made by herb!</div>
     </div>
     <script src="./script.js"></script>
 </body>
+
 </html>
